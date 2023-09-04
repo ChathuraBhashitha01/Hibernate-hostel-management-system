@@ -1,6 +1,8 @@
 package lk.ijse.hibernate.hostalManagementSystem.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Student")
@@ -19,6 +21,9 @@ public class Student {
     private String dob;
     @Column(name = "gender")
     private String gender;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "student")
+    private List<Reservation> orderDetails = new ArrayList<>();
 
     public Student() {
     }

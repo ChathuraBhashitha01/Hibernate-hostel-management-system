@@ -2,10 +2,9 @@ package lk.ijse.hibernate.hostalManagementSystem.entity;
 
 import org.hibernate.annotations.Cache;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "room")
@@ -19,6 +18,9 @@ public class Room {
     private String key_money;
     @Column(name = "qty")
     private int qty;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room")
+    private List<Reservation> orderDetails = new ArrayList<>();
 
     public Room() {
     }

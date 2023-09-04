@@ -1,22 +1,22 @@
 package lk.ijse.hibernate.hostalManagementSystem.controller;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class RoomManagementFormController {
+public class NewStudentRegistrationFormController {
 
     public AnchorPane root;
-    public TextField txtRoomTypeID;
-    public TextField txtKeyMoney;
-    public TextField txtQuantity;
-    public ComboBox cmbType;
-    public TableView tblRoom;
-    public TableColumn colID;
-    public TableColumn colType;
-    public TableColumn colKeyMoney;
-    public TableColumn colQuantity;
-    public TableColumn colAvailable;
+    public TextField txtStudentName;
+    public TextField txtStudentID;
+    public TextField txtAddress;
+    public TextField txtContactNo;
+    public TextField txtDateOfBirth;
+    public RadioButton rdbtnMale;
+    public RadioButton rdbtnFemale;
+    public RadioButton rdbtnOther;
     public Button btnSave;
     public Button btnUpdate;
     public Button btnDelete;

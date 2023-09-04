@@ -20,8 +20,12 @@ public class HomePageFormController {
 
     }
 
-    public void btnManageRoomsOnAction(ActionEvent actionEvent) {
-
+    public void btnManageRoomsOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/room_management_form.fxml"))));
+        stage.setTitle("Home Page");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public void btnKeyMoneyOnAction(ActionEvent actionEvent) {
