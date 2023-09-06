@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -39,7 +40,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbStudentId" layoutX="197.0" layoutY="222.0" onAction="#cmbStudentIdOnAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: ffffff;" />
+      <ComboBox fx:id="cmbStudentId" layoutX="197.0" layoutY="222.0" onMouseClicked="#cmbStudentIdOnAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: ffffff;" />
       <Label layoutX="54.0" layoutY="272.0" prefHeight="22.0" prefWidth="143.0" text="Student Name    :">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -57,19 +58,18 @@
             <Image url="@../../../../../../Users/MSI/Pictures/Screenshot%202023-09-04%20144850.png" />
          </image>
       </ImageView>
-      <Label layoutX="52.0" layoutY="374.0" prefHeight="22.0" prefWidth="143.0" text="Room Type         :">
+      <Label layoutX="52.0" layoutY="374.0" prefHeight="22.0" prefWidth="143.0" text="Room Type  ID    :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtRoomType" layoutX="195.0" layoutY="373.0" prefHeight="26.0" prefWidth="268.0" />
       <Label layoutX="54.0" layoutY="425.0" prefHeight="22.0" prefWidth="143.0" text="Key Money         :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="txtKeyMoney" layoutX="197.0" layoutY="424.0" prefHeight="26.0" prefWidth="268.0" />
-      <Button fx:id="btnAdd" layoutX="197.0" layoutY="477.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="30.0" prefWidth="268.0" style="-fx-background-color: #d48f11;" text="Add" textFill="#38350e">
+      <Button fx:id="btnAdd" layoutX="197.0" layoutY="552.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="30.0" prefWidth="268.0" style="-fx-background-color: #d48f11;" text="Add" textFill="#38350e">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -79,15 +79,22 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="195.0" layoutY="541.0" prefHeight="22.0" prefWidth="206.0" text="Click in here add the new  Student :">
+      <Label layoutX="195.0" layoutY="605.0" prefHeight="22.0" prefWidth="206.0" text="Click in here add the new  Student :">
          <font>
             <Font name="System Italic" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblLogin" layoutX="401.0" layoutY="541.0" onMouseClicked="#lblLoginOnAction" prefHeight="22.0" prefWidth="55.0" text="Log in" textFill="#466ccc">
+      <Label fx:id="lblLogin" layoutX="401.0" layoutY="605.0" onMouseClicked="#lblLoginOnAction" prefHeight="22.0" prefWidth="55.0" text="Log in" textFill="#466ccc">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </Label>
+      <ComboBox fx:id="cmbRoomTypeID" layoutX="197.0" layoutY="372.0" onMouseClicked="#cmbRoomTypeIDOnAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: ffffff;" />
+      <Label layoutX="52.0" layoutY="479.0" prefHeight="22.0" prefWidth="143.0" text="Key Money Status :         :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="198.0" layoutY="474.0" prefHeight="58.0" prefWidth="268.0" />
    </children>
 </AnchorPane>

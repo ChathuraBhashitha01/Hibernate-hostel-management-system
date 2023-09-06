@@ -1,6 +1,10 @@
 package lk.ijse.hibernate.hostalManagementSystem.entity;
 
-import javax.persistence.*;
+
+
+
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +21,7 @@ public class Student {
     private String address;
     @Column(name = "contact_no")
     private String contactNo;
-    @Transient
+    @Column (name = "dob")
     private String dob;
     @Column(name = "gender")
     private String gender;
@@ -77,8 +81,8 @@ public class Student {
         this.dob = dob;
     }
 
-    public String getGender() {
-        return gender;
+    public String getGender(String gender) {
+        return this.gender;
     }
 
     public void setGender(String gender) {

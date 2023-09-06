@@ -1,7 +1,7 @@
 package lk.ijse.hibernate.hostalManagementSystem.entity;
 
-import javax.persistence.*;
-import java.sql.Date;
+
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "reservation")
@@ -10,7 +10,7 @@ public class Reservation {
     @Column(name = "res_id")
     private String res_id;
     @Column(name = "date")
-    private Date date;
+    private String date;
     @Column(name = "status")
     private String status;
 
@@ -31,14 +31,13 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(String res_id, Date date, String status, Student student, Room room) {
+    public Reservation(String res_id, String date, String status, Student student, Room room) {
         this.res_id = res_id;
         this.date = date;
         this.status = status;
         this.student = student;
         this.room = room;
     }
-
     public String getRes_id() {
         return res_id;
     }
@@ -47,11 +46,11 @@ public class Reservation {
         this.res_id = res_id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
