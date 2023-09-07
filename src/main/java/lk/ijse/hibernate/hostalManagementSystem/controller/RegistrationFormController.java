@@ -11,10 +11,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.hibernate.hostalManagementSystem.bo.RegistrationBOImpl;
-import lk.ijse.hibernate.hostalManagementSystem.bo.RoomManagementBOImpl;
-import lk.ijse.hibernate.hostalManagementSystem.bo.StudentRegistrationBOImpl;
 import lk.ijse.hibernate.hostalManagementSystem.dto.ReservationDTO;
-import lk.ijse.hibernate.hostalManagementSystem.dto.StudentDTO;
+import lk.ijse.hibernate.hostalManagementSystem.dto.RoomDTO;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Reservation;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Room;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Student;
@@ -66,10 +64,33 @@ public class RegistrationFormController implements Initializable {
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
+        Student student=registrationBO.getStudentDetails(String.valueOf(cmbStudentId.getValue()));
+        Room room=registrationBO.getRoomDetails(String.valueOf(cmbRoomTypeID.getValue()));
 
-        //Reservation reservation=new Reservation(txtRefID.getText(),txtDate.getText(),txtStatus.getText());
+        ReservationDTO reservation=new ReservationDTO();
+        reservation.setRes_id(txtRefID.getText());
+        reservation.setDate(txtDate.getText());
+        reservation.setStatus(txtStatus.getText());
+        reservation.setStudent(student);
+        reservation.setRoom(room);
+
+        String id= String.valueOf(cmbStudentId.getValue());
 
 
+
+        try {
+            Room roomDetail=registrationBO.getRoomDetails(id);
+            int qty=roomDetail.getQty();
+            RoomDTO roomDTO=new RoomDTO();
+            roomDTO.setRoomTypeId(String.valueOf(cmbRoomTypeID.getValue()));
+            roomDTO.setType(String.valueOf(cmbRoomTypeID.getValue()));
+            roomDTO.setKey_money(txtKeyMoney.getText());
+            roomDTO.setQty(qty-1);
+
+            registrationBO.addRegistration(reservation,roomDTO);
+        }catch (Exception e){
+
+        }
     }
 
     public void lblLoginOnAction(MouseEvent mouseEvent) throws IOException {
@@ -97,11 +118,16 @@ public class RegistrationFormController implements Initializable {
     private void loadRoomTypeID() {
         try {
             ObservableList<String> obList = FXCollections.observableArrayList();
+            ObservableList<String> obListType = FXCollections.observableArrayList();
             List<Room> codes = registrationBO.getAllRoom();
 
             for (Room code : codes) {
                 obList.add(code.getRoomTypeId());
+                if(code.getQty()!=0){
+                    obListType.add(code.getType());
+                }
             }
+            cmbAvaiableRooms.setItems(obListType);
             cmbRoomTypeID.setItems(obList);
         } catch (SQLException e) {
             e.printStackTrace();

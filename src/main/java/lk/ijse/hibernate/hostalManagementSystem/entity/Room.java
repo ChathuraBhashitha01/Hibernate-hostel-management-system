@@ -1,7 +1,6 @@
 package lk.ijse.hibernate.hostalManagementSystem.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cache;
 
 
 import java.util.ArrayList;

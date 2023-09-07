@@ -35,40 +35,40 @@
          </font>
       </Label>
       <Separator layoutX="54.0" layoutY="191.0" prefHeight="3.0" prefWidth="826.0" />
-      <Label layoutX="54.0" layoutY="224.0" prefHeight="22.0" prefWidth="143.0" text="Student ID           :">
+      <Label layoutX="54.0" layoutY="267.0" prefHeight="22.0" prefWidth="143.0" text="Student ID           :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbStudentId" layoutX="197.0" layoutY="222.0" onMouseClicked="#cmbStudentIdOnAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: ffffff;" />
-      <Label layoutX="54.0" layoutY="272.0" prefHeight="22.0" prefWidth="143.0" text="Student Name    :">
+      <ComboBox fx:id="cmbStudentId" layoutX="197.0" layoutY="265.0" onMouseClicked="#cmbStudentIdOnAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: ffffff;" />
+      <Label layoutX="54.0" layoutY="308.0" prefHeight="22.0" prefWidth="143.0" text="Student Name    :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtStudentName" layoutX="197.0" layoutY="271.0" prefHeight="26.0" prefWidth="268.0" />
-      <Label layoutX="55.0" layoutY="323.0" prefHeight="22.0" prefWidth="143.0" text="Date                    :">
+      <TextField fx:id="txtStudentName" layoutX="197.0" layoutY="307.0" prefHeight="26.0" prefWidth="268.0" />
+      <Label layoutX="55.0" layoutY="349.0" prefHeight="22.0" prefWidth="143.0" text="Date                    :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDate" layoutX="198.0" layoutY="322.0" prefHeight="26.0" prefWidth="268.0" />
+      <TextField fx:id="txtDate" layoutX="198.0" layoutY="348.0" prefHeight="26.0" prefWidth="268.0" />
       <ImageView fitHeight="339.0" fitWidth="418.0" layoutX="499.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Users/MSI/Pictures/Screenshot%202023-09-04%20144850.png" />
          </image>
       </ImageView>
-      <Label layoutX="52.0" layoutY="374.0" prefHeight="22.0" prefWidth="143.0" text="Room Type  ID    :">
+      <Label layoutX="52.0" layoutY="394.0" prefHeight="22.0" prefWidth="143.0" text="Room Type  ID    :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="54.0" layoutY="425.0" prefHeight="22.0" prefWidth="143.0" text="Key Money         :">
+      <Label layoutX="54.0" layoutY="438.0" prefHeight="22.0" prefWidth="143.0" text="Key Money         :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtKeyMoney" layoutX="197.0" layoutY="424.0" prefHeight="26.0" prefWidth="268.0" />
+      <TextField fx:id="txtKeyMoney" layoutX="197.0" layoutY="437.0" prefHeight="26.0" prefWidth="268.0" />
       <Button fx:id="btnAdd" layoutX="197.0" layoutY="552.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="30.0" prefWidth="268.0" style="-fx-background-color: #d48f11;" text="Add" textFill="#38350e">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -89,12 +89,18 @@
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbRoomTypeID" layoutX="197.0" layoutY="372.0" onMouseClicked="#cmbRoomTypeIDOnAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: ffffff;" />
+      <ComboBox fx:id="cmbRoomTypeID" layoutX="197.0" layoutY="392.0" onMouseClicked="#cmbRoomTypeIDOnAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: ffffff;" />
       <Label layoutX="52.0" layoutY="479.0" prefHeight="22.0" prefWidth="143.0" text="Key Money Status :         :">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextArea layoutX="198.0" layoutY="474.0" prefHeight="58.0" prefWidth="268.0" />
+      <TextArea fx:id="txtStatus" layoutX="198.0" layoutY="482.0" prefHeight="58.0" prefWidth="268.0" />
+      <Label layoutX="55.0" layoutY="219.0" prefHeight="22.0" prefWidth="143.0" text="Ref-ID                  :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtRefID" layoutX="198.0" layoutY="218.0" prefHeight="26.0" prefWidth="268.0" />
    </children>
 </AnchorPane>

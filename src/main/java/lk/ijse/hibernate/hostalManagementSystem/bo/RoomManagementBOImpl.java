@@ -74,7 +74,7 @@ public class RoomManagementBOImpl {
         }
     }
 
-    public List<Room> getAll() {
+    public List<Room  > getAll() {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try{

@@ -1,10 +1,14 @@
 package lk.ijse.hibernate.hostalManagementSystem.bo;
 
 import lk.ijse.hibernate.hostalManagementSystem.config.SessionFactoryConfig;
+import lk.ijse.hibernate.hostalManagementSystem.dao.ReservationDAO;
 import lk.ijse.hibernate.hostalManagementSystem.dao.RoomDAO;
 import lk.ijse.hibernate.hostalManagementSystem.dao.StudentDAO;
+import lk.ijse.hibernate.hostalManagementSystem.dao.impl.ReservationDAOImpl;
 import lk.ijse.hibernate.hostalManagementSystem.dao.impl.RoomDAOImpl;
 import lk.ijse.hibernate.hostalManagementSystem.dao.impl.StudentDAOImpl;
+import lk.ijse.hibernate.hostalManagementSystem.dto.ReservationDTO;
+import lk.ijse.hibernate.hostalManagementSystem.dto.RoomDTO;
 import lk.ijse.hibernate.hostalManagementSystem.dto.StudentDTO;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Room;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Student;
@@ -18,10 +22,12 @@ public class RegistrationBOImpl {
     private static RegistrationBOImpl registrationBO;
     private final StudentDAO studentDAO;
     private final RoomDAO roomDAO;
+    private final ReservationDAO reservationDAO;
 
     private RegistrationBOImpl() {
         studentDAO = (StudentDAO) new StudentDAOImpl();
         roomDAO = (RoomDAO) new RoomDAOImpl();
+        reservationDAO=(ReservationDAO) new ReservationDAOImpl();
     }
 
     public static RegistrationBOImpl getInstance() {
@@ -85,6 +91,23 @@ public class RegistrationBOImpl {
 
         }catch (Exception e){
             return null;
+        }
+    }
+
+    public void addRegistration(ReservationDTO reservation, RoomDTO roomDTO) {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            reservationDAO.setSession(session);
+            reservationDAO.save(reservation.toEntity());
+            roomDAO.setSession(session);
+            roomDAO.update(roomDTO.toEntity());
+            transaction.commit();
+            session.close();
+
+        }catch (Exception e){
+
         }
     }
 }
