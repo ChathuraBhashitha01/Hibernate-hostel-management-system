@@ -35,7 +35,7 @@ public class RoomManagementFormController implements Initializable {
     public Button btnDelete;
 
     private String[] prtType = {"AC", "Non AC",};
-    private RoomBO roomBO = BOFactory.getBoFactory().getBo(BOFactory.BoType.STUDENT);
+    private RoomBO roomBO = BOFactory.getBoFactory().getBo(BOFactory.BoType.ROOM);
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
         String id=txtRoomTypeID.getText();

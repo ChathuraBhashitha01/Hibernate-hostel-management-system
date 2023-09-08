@@ -5,7 +5,6 @@ import lk.ijse.hibernate.hostalManagementSystem.entity.Reservation;
 import org.hibernate.Session;
 
 public class ReservationDAOImpl implements ReservationDAO {
-
     private Session session;
 
     @Override

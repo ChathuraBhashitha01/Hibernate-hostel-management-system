@@ -14,6 +14,7 @@ import lk.ijse.hibernate.hostalManagementSystem.bo.BOFactory;
 import lk.ijse.hibernate.hostalManagementSystem.bo.impl.ReservationBO;
 import lk.ijse.hibernate.hostalManagementSystem.dto.ReservationDTO;
 import lk.ijse.hibernate.hostalManagementSystem.dto.RoomDTO;
+import lk.ijse.hibernate.hostalManagementSystem.dto.StudentDTO;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Room;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Student;
 

@@ -17,16 +17,17 @@ public class DAOFactory {
         STUDENT,ROOM,RESERVATION
     }
 
-    public <SuperDao> SuperDao getDao(DaoType daoType){
+    public <SuperDAO> SuperDAO getDao(DaoType daoType){
         switch (daoType){
             case STUDENT:
-                return (SuperDao) new StudentDAOImpl();
+                return (SuperDAO) new StudentDAOImpl();
             case ROOM:
-                return (SuperDao) new RoomDAOImpl();
+                return (SuperDAO) new RoomDAOImpl();
             case RESERVATION:
-                return (SuperDao) new ReservationDAOImpl();
+                return (SuperDAO) new ReservationDAOImpl();
             default:
                 return null;
         }
     }
+
 }

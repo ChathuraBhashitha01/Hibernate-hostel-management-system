@@ -1,6 +1,6 @@
 package lk.ijse.hibernate.hostalManagementSystem.dao.impl.custom;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Query;
 import lk.ijse.hibernate.hostalManagementSystem.dao.impl.StudentDAO;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Student;
 import org.hibernate.Session;
@@ -44,5 +44,4 @@ public class StudentDAOImpl implements StudentDAO {
     public void delete(Student student) {
         session.delete(student);
     }
-
 }

@@ -44,5 +44,4 @@ public class RoomDAOImpl implements RoomDAO {
     public void delete(Room room) {
         session.delete(room);
     }
-
 }

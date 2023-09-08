@@ -69,10 +69,10 @@ public class ReservationBOImpl implements ReservationBO {
         Transaction transaction = session.beginTransaction();
         try{
             roomDAO.setSession(session);
-            Room list= roomDAO.get(id);
+            Room roomList= roomDAO.get(id);
             transaction.commit();
             session.close();
-            return list;
+            return roomList;
 
         }catch (Exception e){
             return null;
