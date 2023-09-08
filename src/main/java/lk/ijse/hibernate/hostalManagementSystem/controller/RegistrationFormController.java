@@ -10,10 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.hibernate.hostalManagementSystem.bo.RegistrationBOImpl;
+import lk.ijse.hibernate.hostalManagementSystem.bo.BOFactory;
+import lk.ijse.hibernate.hostalManagementSystem.bo.impl.ReservationBO;
 import lk.ijse.hibernate.hostalManagementSystem.dto.ReservationDTO;
 import lk.ijse.hibernate.hostalManagementSystem.dto.RoomDTO;
-import lk.ijse.hibernate.hostalManagementSystem.entity.Reservation;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Room;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Student;
 
@@ -37,9 +37,11 @@ public class RegistrationFormController implements Initializable {
     public ComboBox cmbRoomTypeID;
     public TextField txtRefID;
     public TextArea txtStatus;
+    public ComboBox cmbMoneyStatus;
     private String[] prtType = {"AC", "Non AC",};
+    private String[] status = {"All", "Paid","Pending"};
 
-    RegistrationBOImpl registrationBO= RegistrationBOImpl.getInstance();
+    private ReservationBO reservationBO = BOFactory.getBoFactory().getBo(BOFactory.BoType.RESERVATION);
 
 
     public void cmbAvaiableRoomsOnAction(ActionEvent actionEvent) {
@@ -53,7 +55,7 @@ public class RegistrationFormController implements Initializable {
     public void cmbStudentIdOnAction(MouseEvent mouseEvent) {
         String id= String.valueOf(cmbStudentId.getValue());
         try{
-            Student student=registrationBO.getStudentDetails(id);
+            Student student=reservationBO.getStudentDetails(id);
             String name=student.getName();
             txtStudentName.setText(name);
 
@@ -64,13 +66,13 @@ public class RegistrationFormController implements Initializable {
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
-        Student student=registrationBO.getStudentDetails(String.valueOf(cmbStudentId.getValue()));
-        Room room=registrationBO.getRoomDetails(String.valueOf(cmbRoomTypeID.getValue()));
+        Student student=reservationBO.getStudentDetails(String.valueOf(cmbStudentId.getValue()));
+        Room room=reservationBO.getRoomDetails(String.valueOf(cmbRoomTypeID.getValue()));
 
         ReservationDTO reservation=new ReservationDTO();
         reservation.setRes_id(txtRefID.getText());
         reservation.setDate(txtDate.getText());
-        reservation.setStatus(txtStatus.getText());
+        reservation.setStatus(String.valueOf(cmbMoneyStatus.getValue()));
         reservation.setStudent(student);
         reservation.setRoom(room);
 
@@ -79,7 +81,7 @@ public class RegistrationFormController implements Initializable {
 
 
         try {
-            Room roomDetail=registrationBO.getRoomDetails(id);
+            Room roomDetail=reservationBO.getRoomDetails(id);
             int qty=roomDetail.getQty();
             RoomDTO roomDTO=new RoomDTO();
             roomDTO.setRoomTypeId(String.valueOf(cmbRoomTypeID.getValue()));
@@ -87,7 +89,7 @@ public class RegistrationFormController implements Initializable {
             roomDTO.setKey_money(txtKeyMoney.getText());
             roomDTO.setQty(qty-1);
 
-            registrationBO.addRegistration(reservation,roomDTO);
+            reservationBO.addRegistration(reservation,roomDTO);
         }catch (Exception e){
 
         }
@@ -103,7 +105,7 @@ public class RegistrationFormController implements Initializable {
     private void loadStudentID() {
         try {
             ObservableList<String> obList = FXCollections.observableArrayList();
-            List<Student> codes = registrationBO.getAll();
+            List<Student> codes = reservationBO.getAll();
 
             for (Student code : codes) {
                 obList.add(code.getStudentID());
@@ -119,7 +121,7 @@ public class RegistrationFormController implements Initializable {
         try {
             ObservableList<String> obList = FXCollections.observableArrayList();
             ObservableList<String> obListType = FXCollections.observableArrayList();
-            List<Room> codes = registrationBO.getAllRoom();
+            List<Room> codes = reservationBO.getAllRoom();
 
             for (Room code : codes) {
                 obList.add(code.getRoomTypeId());
@@ -139,6 +141,7 @@ public class RegistrationFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cmbAvaiableRooms.getItems().addAll(prtType);
+        cmbMoneyStatus.getItems().addAll(status);
         loadStudentID();
         loadRoomTypeID();
     }
@@ -146,7 +149,7 @@ public class RegistrationFormController implements Initializable {
     public void cmbRoomTypeIDOnAction(MouseEvent mouseEvent) {
         String id= String.valueOf(cmbRoomTypeID.getValue());
         try{
-            Room room=registrationBO.getRoomDetails(id);
+            Room room=reservationBO.getRoomDetails(id);
             String name=room.getKey_money();
             txtKeyMoney.setText(name);
 

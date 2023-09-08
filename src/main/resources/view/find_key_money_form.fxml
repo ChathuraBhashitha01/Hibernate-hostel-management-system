@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="658.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostalManagementSystem.controller.FindKeyMoneyFormController">
+   <children>
+      <ImageView fitHeight="538.0" fitWidth="441.0" layoutX="447.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Users/MSI/Pictures/Screenshot%202023-09-04%20144850.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="33.0" layoutY="217.0" prefHeight="22.0" prefWidth="143.0" text="Student ID           :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbRefId" layoutX="174.0" layoutY="154.0" onMouseClicked="#cmbRefIdOnAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: ffffff;" />
+      <Label layoutX="31.0" layoutY="276.0" prefHeight="22.0" prefWidth="143.0" text="Student Name    :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStudentName" layoutX="174.0" layoutY="275.0" prefHeight="26.0" prefWidth="268.0" />
+      <Label layoutX="30.0" layoutY="339.0" prefHeight="22.0" prefWidth="143.0" text="Room Type  ID    :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="399.0" prefHeight="22.0" prefWidth="143.0" text="Key Money         :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtRoomType" layoutX="176.0" layoutY="398.0" prefHeight="26.0" prefWidth="268.0" />
+      <Label layoutX="21.0" layoutY="468.0" prefHeight="22.0" prefWidth="151.0" text="Key Money Status : ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="156.0" prefHeight="22.0" prefWidth="143.0" text="Ref-ID                  :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStudentID" layoutX="174.0" layoutY="215.0" prefHeight="26.0" prefWidth="268.0" />
+      <TextField fx:id="txtRoomTypeID" layoutX="175.0" layoutY="337.0" prefHeight="26.0" prefWidth="268.0" />
+      <TextField fx:id="txtKeyMoneyStatus" layoutX="174.0" layoutY="464.0" prefHeight="26.0" prefWidth="268.0" />
+      <Label layoutX="370.0" layoutY="50.0" prefHeight="30.0" prefWidth="278.0" text="Find Key Money Status">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

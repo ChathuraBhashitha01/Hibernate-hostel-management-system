@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="root" prefHeight="512.0" prefWidth="776.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hibernate.hostalManagementSystem.controller.HomePageFormController">
    <children>
       <ImageView fitHeight="378.0" fitWidth="435.0" layoutX="1.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
@@ -31,6 +30,11 @@
          </font>
       </Button>
       <Button layoutX="518.0" layoutY="234.0" mnemonicParsing="false" onAction="#btnKeyMoneyOnAction" prefHeight="44.0" prefWidth="203.0" style="-fx-background-radius: 30; -fx-background-color: a2e1fa;" text="Key Money Status">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="517.0" layoutY="307.0" mnemonicParsing="false" onAction="#btnChangePasswordOnAction" prefHeight="44.0" prefWidth="203.0" style="-fx-background-radius: 30; -fx-background-color: a2e1fa;" text="Change Password">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

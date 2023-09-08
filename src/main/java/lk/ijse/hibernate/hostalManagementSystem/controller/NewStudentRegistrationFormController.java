@@ -5,7 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.hibernate.hostalManagementSystem.bo.StudentRegistrationBOImpl;
+import lk.ijse.hibernate.hostalManagementSystem.bo.BOFactory;
+import lk.ijse.hibernate.hostalManagementSystem.bo.impl.StudentBO;
 import lk.ijse.hibernate.hostalManagementSystem.dto.StudentDTO;
 
 public class NewStudentRegistrationFormController {
@@ -23,7 +24,7 @@ public class NewStudentRegistrationFormController {
     public Button btnUpdate;
     public Button btnDelete;
 
-    StudentRegistrationBOImpl studentBO= StudentRegistrationBOImpl.getInstance();
+    private StudentBO studentBO = BOFactory.getBoFactory().getBo(BOFactory.BoType.STUDENT);
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
 

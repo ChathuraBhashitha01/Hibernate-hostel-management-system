@@ -27,7 +27,7 @@ public class Student {
     private String gender;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "student")
-    private List<Reservation> orderDetails = new ArrayList<>();
+    private List<Reservation> reservations = new ArrayList<>();
 
     public Student() {
     }

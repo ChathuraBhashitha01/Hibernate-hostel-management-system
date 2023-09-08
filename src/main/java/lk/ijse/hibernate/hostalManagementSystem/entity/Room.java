@@ -20,7 +20,7 @@ public class Room {
     private int qty;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room")
-    private List<Reservation> orderDetails = new ArrayList<>();
+    private List<Reservation> reservations = new ArrayList<>();
 
     public Room() {
     }

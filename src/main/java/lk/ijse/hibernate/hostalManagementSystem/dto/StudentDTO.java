@@ -57,7 +57,7 @@ public class StudentDTO {
         this.contactNo = contactNo;
     }
 
-    public String getDob() {
+    public String getDob(){
         return dob;
     }
 

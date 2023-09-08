@@ -7,7 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.hibernate.hostalManagementSystem.bo.RoomManagementBOImpl;
+import lk.ijse.hibernate.hostalManagementSystem.bo.BOFactory;
+import lk.ijse.hibernate.hostalManagementSystem.bo.impl.RoomBO;
 import lk.ijse.hibernate.hostalManagementSystem.dto.RoomDTO;
 import lk.ijse.hibernate.hostalManagementSystem.dto.dtm.RoomTM;
 import lk.ijse.hibernate.hostalManagementSystem.entity.Room;
@@ -34,7 +35,7 @@ public class RoomManagementFormController implements Initializable {
     public Button btnDelete;
 
     private String[] prtType = {"AC", "Non AC",};
-    RoomManagementBOImpl roomBO= RoomManagementBOImpl.getInstance();
+    private RoomBO roomBO = BOFactory.getBoFactory().getBo(BOFactory.BoType.STUDENT);
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
         String id=txtRoomTypeID.getText();
@@ -56,7 +57,6 @@ public class RoomManagementFormController implements Initializable {
         String keyMoney=txtKeyMoney.getText();
         int qty= Integer.parseInt(txtQuantity.getText());
         try {
-            RoomManagementBOImpl roomBO= RoomManagementBOImpl.getInstance();
             boolean isSave=roomBO.update(new RoomDTO(id,type,keyMoney,qty));
 
         }catch (Exception e){
@@ -71,7 +71,6 @@ public class RoomManagementFormController implements Initializable {
         String keyMoney=txtKeyMoney.getText();
         int qty= Integer.parseInt(txtQuantity.getText());
         try {
-            RoomManagementBOImpl roomBO= RoomManagementBOImpl.getInstance();
             boolean isSave=roomBO.delete(new RoomDTO(id,type,keyMoney,qty));
 
         }catch (Exception e){
